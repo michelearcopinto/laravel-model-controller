@@ -10,11 +10,6 @@
             h1 {
                 color: blue;
             }
-
-            li {
-                list-style-type: disc;
-                margin-left: 1rem;
-            }
         }
     </style>
 @endsection
@@ -22,13 +17,24 @@
 @section('content')
     <h1>{{ $greeting }}</h1>
 
-    <ul>
-        @foreach ($data as $element)
-            {{-- {{ dd($loop) }} --}}
-
-            <li>
-                {{ $element['name'] }}
-            </li>
+    <div class="grid">
+        @foreach ($movies as $movie)
+            <div class="card">
+                <ul>
+                    <li>
+                        Titolo: <strong>{{ $movie['title'] }}</strong>
+                    </li>
+                    <li>
+                        Nazionalità: <strong>{{ $movie['nationality'] }}</strong>
+                    </li>
+                    <li>
+                        Data: <strong>{{ $movie['date'] }}</strong>
+                    </li>
+                    <li>
+                        Voto: <strong>{{ $movie['vote'] }}</strong>
+                    </li>
+                </ul>
+            </div>
         @endforeach
-    </ul>
+    </div>
 @endsection

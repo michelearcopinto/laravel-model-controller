@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -10,7 +11,7 @@ class PageController extends Controller
     public function index()
     {
 
-        $greeting = 'Hello World';
+        $greeting = 'Lista film';
 
         $data = [
             [
@@ -27,6 +28,8 @@ class PageController extends Controller
             ],
         ];
 
-        return view('welcome', compact('data', 'greeting'));
+        $movies = Movie::All();
+
+        return view('welcome', compact('data', 'greeting', 'movies'));
     }
 }
